@@ -23,57 +23,41 @@ class _MyHomePageState extends State<MyHomePage> {
         title: const Text("Movie Reactions"),
         backgroundColor: kPrimaryColor,
       ),
-      body: Wrap(children: [
-        Center(
-          child: Container(
-            padding: const EdgeInsets.fromLTRB(20, 0, 20, 20),
-            width: MediaQuery.of(context).size.width * 1,
-            height: size.height * 0.11 - 30,
-            decoration: BoxDecoration(
-                color: kPrimaryColor,
-                borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(36),
-                    bottomRight: Radius.circular(36))),
-            child: Column(
-              children: [
-                Row(
-                  mainAxisAlignment:  MainAxisAlignment.center,
-                  children: [
-                    Center(
-                      child: Text(
-                        "Lo más nuevo",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: size.height /40,
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                    Spacer(),
-                    Column(
-                      children:[ Container(                      
-                        child: ClipRRect()),
-                   ])
-                  ],
-                ),
-               
-              ],
+      body: SingleChildScrollView(
+        child: Wrap(children: [
+          Container(
+            width: size.width,
+            height: size.height/15,
+            decoration:BoxDecoration(
+              color: kPrimaryColor
             ),
+            child: Center(child: Text("Valora tus Pelis",style: TextStyle(color:Colors.white, fontWeight:FontWeight.bold,fontSize: 25),)),
           ),
-        ),
+          Center(
+            child: Container(
+            child: Container(
+              margin: EdgeInsets.fromLTRB(10,20,10,20),
+              child: ClipRRect(
+                  borderRadius: BorderRadius.all(Radius.circular(25.0)),
+                  child: Stack(
+                    children: <Widget>[
+                   
+                      Image.network('https://i.ytimg.com/vi/bmgHuY-NnvA/maxresdefault.jpg',fit: BoxFit.cover,),
+                      Text("Lo más nuevo"),
+                    ]))))),
+          Center(
+            child: Container(
+                padding: EdgeInsets.fromLTRB(5, 0, 5, 5),
+                height: size.height/2,
+                width: size.width,
+                
+                child:ComplicatedImageDemo(),
+                ),
+          ),
+    
         
-        Center(
-          child: Container(
-              padding: EdgeInsets.fromLTRB(5, 8, 5, 5),
-              height: size.height/1.5,
-              width: size.width,
-              
-              child:ComplicatedImageDemo(),
-              ),
-        ),
-      
-        ]),
+          ]),
+      ),
       bottomNavigationBar: FancyBottomNavigation(
         tabs: [
         TabData(iconData: Icons.home, title: "Home"),
