@@ -4,6 +4,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:fancy_bottom_navigation/fancy_bottom_navigation.dart';
 import 'package:movies_app/constants.dart';
+import 'package:movies_app/pages/filterMoviePage.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);
@@ -61,7 +62,9 @@ class _MyHomePageState extends State<MyHomePage> {
       bottomNavigationBar: FancyBottomNavigation(
         tabs: [
         TabData(iconData: Icons.home, title: "Home"),
-        TabData(iconData: Icons.search, title: "Search"),
+        TabData(iconData: Icons.search, title: "Search",
+        onclick:() {
+            Navigator.push(context,MaterialPageRoute(builder: (context)=>SearchList()));},),
         TabData(iconData: Icons.shopping_cart, title: "Basket")
     ],
     onTabChangedListener: (position) {
